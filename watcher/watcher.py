@@ -1,12 +1,12 @@
-import obd 
 from obd import OBDResponse
 import datetime
 
 from db.controller import createLog
+import logging
 
 def watcher(obdResponse: OBDResponse):
-    print("Watcher got the obdResponse")
-    print(str(obdResponse))
+    logger = logging.getLogger('obd-logger')
+    logger.debug(f'watcher got response: {obdResponse}')
 
     command = obdResponse.command
     response = obdResponse.value

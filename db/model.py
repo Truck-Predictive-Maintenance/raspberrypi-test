@@ -1,11 +1,11 @@
 from peewee import *
 import datetime
 
-from db.connection import get_db 
+db =  SqliteDatabase('obdlog_database.db')
 
 class BaseModel(Model):
     class Meta: 
-        database = get_db()
+        database = db
 
 class ObdLog(BaseModel):
     timestamp = DateTimeField(default = datetime.datetime.now)
